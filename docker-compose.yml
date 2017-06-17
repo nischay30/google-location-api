@@ -1,0 +1,16 @@
+version: "2"
+services:
+  google-location:
+    build: .
+    ports:
+      - 80:8090
+    depends_on:
+      - mongo
+    environment:
+      API_KEY: 'AIzaSyBtHQxA4bEZq_f3wv2hzUBBUupFfN9E4ZI'
+      MONGO_URL: "mongodb://mongo/location"
+      JWT_SECRET: 'nischay'  
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017    
